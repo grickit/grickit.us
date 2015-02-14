@@ -1,6 +1,6 @@
 RewriteEngine on
-	RewriteRule ^([a-zA-Z0-9]{3,9})(.png|.gif|.jpg|.jpeg|.webm|.gifv)$ index.php?imageID=$1$2
+  RewriteRule ^([a-zA-Z0-9]{3,9})(.png|.gif|.jpg|.jpeg|.webm|.gifv)$ index.php?imageID=$1$2
 
 ExpiresActive on
-	ExpiresDefault "now plus 1 year"
+  ExpiresDefault "now plus 1 year"
   Header append Cache-Control "public"
