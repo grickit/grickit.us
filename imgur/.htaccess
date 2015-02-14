@@ -1,7 +1,11 @@
 RewriteEngine on
-  RewriteRule ^([a-zA-Z0-9]{3,9})(.png|.gif|.jpg)$ http://imgur.${MACHINE}/$1.jpeg [R=302,L]
-  RewriteRule ^([a-zA-Z0-9]{3,9}).jpeg$ index.php?imageID=$1
 
-ExpiresActive on
-  ExpiresDefault "now plus 1 year"
-  Header append Cache-Control "public"
+  # Redirect i.imgur.foo.bar to imgur.foo.bar
+  RewriteCond %{HTTP_HOST} ^i\.imgur\.${MACHINE}$ [NC]
+  RewriteRule ^(.*)$ http://imgur.${MACHINE}/$1 [NC,R=301]
+
+  # Force .jpeg
+  RewriteRule ^([a-zA-Z0-9]{3,9})\.(png|gif|jpg)$ http://imgur.${MACHINE}/$1.jpeg [NC,R=302,L]
+
+  # Send the imageID to the proxy script
+  RewriteRule ^([a-zA-Z0-9]{3,9})\.jpeg$ index.php?imageID=$1 [NC]
