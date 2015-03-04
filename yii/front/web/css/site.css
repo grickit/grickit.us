@@ -99,16 +99,16 @@ a.desc:after {
     border: 1px solid #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
+    color: #DDDDDD;
 }
 
-.thing.tile > a {
+.thing.tile > span {
     display: block;
     position: relative;
     top: 110px;
     background-color: rgba(10,10,10,0.9);
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
-    color: #DDDDDD;
     padding: 5px;
 }
 

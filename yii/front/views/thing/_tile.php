@@ -1,8 +1,4 @@
 <?php
   use yii\helpers\Html;
-?>
 
-<div class="thing tile" style="background-image: url('/images/thing/icon/<?php echo $model->nameSafe; ?>.png');">
-  <?php echo Html::a($model->name,Yii::$app->urlManager->createURL("thing/view/".$model->nameSafe)); ?>
-
-</div>
+   echo Html::a('<span>'.$model->name.'</span>',Yii::$app->urlManager->createURL("thing/view/".$model->nameSafe),array('class' => 'thing tile', 'style' => "background-image: url('/images/thing/icon/".$model->nameSafe."');"));
