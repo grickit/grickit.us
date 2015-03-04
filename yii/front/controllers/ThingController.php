@@ -24,6 +24,8 @@ class ThingController extends Controller {
 
 
     public function actionCreate() {
+        if(Yii::$app->user->isGuest) { return $this->goHome(); }
+
         $model = new thing();
         $model->activeStatus = 1;
         $model->createDate = date('Y-m-d H:i:s',time());
@@ -38,8 +40,9 @@ class ThingController extends Controller {
     }
 
 
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
+        if(Yii::$app->user->isGuest) { return $this->goHome(); }
+
         $model = $this->findModelByID($id);
         $model->updateDate = date('Y-m-d H:i:s',time());
 
@@ -52,8 +55,9 @@ class ThingController extends Controller {
     }
 
 
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
+        if(Yii::$app->user->isGuest) { return $this->goHome(); }
+
         $this->findModelByID($id)->delete();
         return $this->redirect(['index']);
     }
