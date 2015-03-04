@@ -48,6 +48,7 @@ AppAsset::register($this);
         ?>
 
         <div class="container">
+            <div class="alert alert-warning" role="alert"><strong>Heads up!</strong> This site is still very much a work in progress.</div>
             <?php echo $content; ?>
         </div>
     </div>
