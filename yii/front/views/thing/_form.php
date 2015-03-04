@@ -17,7 +17,6 @@
         echo $form->field($model,'nameSafe')->textInput(['maxlength' => 50]);
         echo $form->field($model,'description')->textArea(['maxlength' => 2000, 'rows' => 10]);
         echo $form->field($model,'linkURL')->textInput(['maxlength' => 300]);
-        echo $form->field($model,'imageURL')->textInput(['maxlength' => 300]);
         echo $form->field($model,'activeStatus')->checkBox(array('value' => 1, 'uncheckValue' => 0));
       ?>
     </div>
