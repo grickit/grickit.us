@@ -9,7 +9,8 @@
 <div class="thing index">
 
     <?php
-      foreach(thing::find()->each() as $thing) {
+      foreach($dataProvider->getModels() as $thing) {
+        $thing = new Thing($thing);
         echo $this->render('_tile',['model' => $thing]);
       }
 

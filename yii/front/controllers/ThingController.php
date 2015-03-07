@@ -4,7 +4,7 @@ namespace front\controllers;
 
 use Yii;
 use front\models\thing;
-use yii\data\ActiveDataProvider;
+use yii\data\SqlDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -26,7 +26,10 @@ class ThingController extends Controller {
     }
 
     public function actionIndex() {
-        $dataProvider = new ActiveDataProvider(['query' => thing::find()]);
+        $dataProvider = new SqlDataProvider([
+            'sql' => 'SELECT * FROM front_things ORDER BY ((GREATEST((30-((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(updateDate))/86400)),0)) + (LOG10(voteCount+1)*(voteCount/((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(createDate))/86400))*10)) DESC',
+        ]);
+
         return $this->render('index',['dataProvider' => $dataProvider]);
     }
 
@@ -43,7 +46,7 @@ class ThingController extends Controller {
         $model->updateDate = date('Y-m-d H:i:s',time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'name' => $model->nameSafe]);
+            return $this->redirect(['thing/view/'.$model->nameSafe]);
         }
         else {
             return $this->render('create', ['model' => $model]);
@@ -56,7 +59,7 @@ class ThingController extends Controller {
         $model->updateDate = date('Y-m-d H:i:s',time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'name' => $model->nameSafe]);
+            return $this->redirect(['thing/view/'.$model->nameSafe]);
         }
         else {
             return $this->render('update', ['model' => $model]);
