@@ -8,6 +8,15 @@
   class StaticURL extends Component {
 
     public function make($path,$file) {
-      return "http://static.".$_SERVER['MACHINE']."/${path}/".filemtime("/var/www/grickit.us/static/${path}/${file}")."_${file}";
+      $localpath = "/var/www/grickit.us/static/${path}/";
+      $localfile = "${localpath}${file}";
+
+      $mtime = (file_exists($localfile) ? filemtime($localfile) : 0);
+
+      $webpath = "http://static.".$_SERVER['MACHINE']."/${path}/";
+      $webfile = "${webpath}${file}";
+
+      $cachefile = "${webpath}${mtime}_${file}";
+      return $cachefile;
     }
   }
