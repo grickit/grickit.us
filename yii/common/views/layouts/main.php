@@ -28,10 +28,9 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             $navtabs = array(
-              ['label' => 'Things', 'url' => ['/thing/index']],
-              ['label' => 'Articles', 'url' => ['/article/index']],
               ['label' => 'About', 'url' => ['/site/about']],
-              ['label' => 'Contact', 'url' => ['/site/contact']]
+              ['label' => 'Things', 'url' => ['/thing/index']],
+              ['label' => 'Articles', 'url' => ['/article/index']]
             );
             if(!Yii::$app->user->isGuest) {
               $navtabs[] = ['label' => 'Logout ('.Yii::$app->user->identity->username.')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']];
