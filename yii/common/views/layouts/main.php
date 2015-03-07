@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use common\components\StaticURL;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -17,8 +18,9 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php echo Html::csrfMetaTags(); ?>
-    <title><?php echo Html::encode($this->title); ?></title>
+    <title><?php echo 'Grickit: '.Html::encode($this->title); ?></title>
     <?php $this->head(); ?>
+    <link rel="stylesheet" href="<?php echo StaticURL::make('css','main.css'); ?>">
 </head>
 <body>
 

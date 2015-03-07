@@ -163,6 +163,8 @@ a.desc:after {
     width: 100%;
     height: 300px;
     border: 1px solid #FFFFFF;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
 .article-banner .article-info {
@@ -170,8 +172,6 @@ a.desc:after {
     top: 160px;
     padding: 10px 20px 10px 20px;
     background-color: rgba(10,10,10,0.9);
-    background-position: center;
-    background-repeat: no-repeat;
     color: #DDDDDD;
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;

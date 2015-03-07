@@ -42,6 +42,9 @@ $config = [
                 '<controller:\w+>/<action:view>/<name:\w+>' => '<controller>/view'
             ],
         ],
+        'StaticURL' => [
+            'class' => 'common\components\StaticURL'
+        ],
     ],
     'params' => $params,
     'runtimePath' => dirname(__DIR__).'/runtime'

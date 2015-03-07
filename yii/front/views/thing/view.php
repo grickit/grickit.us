@@ -1,15 +1,13 @@
 <?php
     use yii\helpers\Html;
     use yii\helpers\HtmlPurifier;
-    use yii\widgets\DetailView;
+    use common\components\StaticURL;
 
     $this->title = $model->name;
-    $this->params['breadcrumbs'][] = ['label' => 'Things', 'url' => ['index']];
-    $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="thing view">
 
-    <div class="article-banner" style="background-image: url('/images/thing/banner/<?php echo $model->nameSafe; ?>.png');">
+    <div class="article-banner" style="background-image: url('<?php echo StaticURL::make('images/thing/banner',$model->nameSafe.'.png'); ?>');">
         <div class="article-info">
             <h1><?php echo Html::encode($this->title); ?></h1>
             <div class="article-meta">
