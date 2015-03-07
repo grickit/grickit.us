@@ -12,6 +12,19 @@ class ThingController extends Controller {
 
     public $layout = '/../../../common/views/layouts/main';
 
+    public function behaviors() {
+        return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'denyCallback' => function($rule,$action) { return $action->controller->redirect('index'); },
+                'rules' => [
+                    ['actions' => ['index','view'], 'roles' => ['?','@'], 'allow' => true],
+                    ['actions' => ['create','update','delete'], 'roles' => ['@'], 'allow' => true]
+                ]
+            ]
+        ];
+    }
+
     public function actionIndex() {
         $dataProvider = new ActiveDataProvider(['query' => thing::find()]);
         return $this->render('index',['dataProvider' => $dataProvider]);
@@ -24,8 +37,6 @@ class ThingController extends Controller {
 
 
     public function actionCreate() {
-        if(Yii::$app->user->isGuest) { return $this->goHome(); }
-
         $model = new thing();
         $model->activeStatus = 1;
         $model->createDate = date('Y-m-d H:i:s',time());
@@ -41,8 +52,6 @@ class ThingController extends Controller {
 
 
     public function actionUpdate($id) {
-        if(Yii::$app->user->isGuest) { return $this->goHome(); }
-
         $model = $this->findModelByID($id);
         $model->updateDate = date('Y-m-d H:i:s',time());
 
@@ -56,8 +65,6 @@ class ThingController extends Controller {
 
 
     public function actionDelete($id) {
-        if(Yii::$app->user->isGuest) { return $this->goHome(); }
-
         $this->findModelByID($id)->delete();
         return $this->redirect(['index']);
     }
