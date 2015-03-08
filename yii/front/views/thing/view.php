@@ -15,12 +15,10 @@
     </div>
 
     <div class="article">
-        <ul class="article-meta">
-            <li>Status: <?php echo ($model->activeStatus ? '<span class="label label-success">Active</span>' : '<span class="label label-default">Inactive</span>'); ?></li>
-            <li>Homepage: <?php echo Html::a('click here', $model->linkURL, array('target' => '_blank')); ?></li>
-        </ul>
+        <p><?php echo ($model->activeStatus ? '<span class="label label-success">Project is active</span>' : '<span class="label label-default">Project is inactive</span>'); ?></p>
+        <p>Last updated: <strong><?php echo $model->updateDate; ?> UTC</strong></p>
         <?php echo HtmlPurifier::process($model->description); ?>
-        <p>Last updated: <?php echo $model->updateDate; ?> UTC</p>
+        <p><?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?></p>
     </div>
 
     <div class="crud">
