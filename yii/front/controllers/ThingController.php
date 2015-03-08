@@ -54,7 +54,7 @@ class ThingController extends Controller {
             }
         }
 
-        return $this->render('view', ['model' => $model]);
+        return $this->render('view', ['model' => $model, 'like' => $model->findLike()]);
     }
 
 

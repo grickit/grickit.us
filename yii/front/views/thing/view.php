@@ -11,13 +11,12 @@
         <div class="article-info">
             <h1><?php echo Html::encode($this->title); ?></h1>
             <div class="article-meta">
-            <?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?>
-            <br>
-            <?php echo ($model->voteCount); ?> likes
-            <br>
-            <?php echo ($model->activeStatus ? '<span class="label label-success">Active</span>' : '<span class="label label-default">Inactive</span>'); ?>
+                <?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?>
+                <br>
+                <?php echo ($model->activeStatus ? '<span class="label label-success">Status: Active</span>' : '<span class="label label-default">Status: Inactive</span>'); ?>
             </div>
         </div>
+        <?php echo $this->render('_like',['model' => $model, 'like' => $like]); ?>
     </div>
 
     <div class="article">
