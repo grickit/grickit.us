@@ -29,6 +29,10 @@ a:link {
     color: #0090B0;
 }
 
+a.btn {
+    color: #FFFFFF;
+}
+
 a:hover {
     color: #003050;
     text-decoration: none;
@@ -165,6 +169,7 @@ body {
 }
 
 
+
 /* ======= ======= ======== ======= ======= */
 /* ======= ======= ARTICLES ======= ======= */
 /* ======= ======= ======== ======= ======= */
@@ -261,6 +266,11 @@ body {
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     background-color: rgba(10,10,10,0.9);
+}
+
+.tile .link:hover,
+.tile .link:active {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 6px 20px 0px inset;
 }
 
 
