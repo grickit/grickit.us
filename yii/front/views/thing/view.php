@@ -5,20 +5,23 @@
 
     $this->title = $model->name;
 ?>
-<div class="thing view">
-
-    <div class="article-banner" style="background-image: url('<?php echo StaticURL::make('images/thing/banner',$model->nameSafe.'.png'); ?>');">
-        <div class="article-info">
-            <h1><?php echo Html::encode($this->title); ?></h1>
-        </div>
-        <?php echo $this->render('_like',['model' => $model, 'like' => $like]); ?>
-    </div>
-
+<div class="thing">
     <div class="article">
-        <p><?php echo ($model->activeStatus ? '<span class="label label-success">Project is active</span>' : '<span class="label label-default">Project is inactive</span>'); ?></p>
-        <p>Last updated: <strong><?php echo $model->updateDate; ?> UTC</strong></p>
-        <?php echo HtmlPurifier::process($model->description); ?>
-        <p><?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?></p>
+
+        <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/thing/banner',$model->nameSafe.'.png'); ?>');">
+            <div class="title">
+                <h1><?php echo Html::encode($this->title); ?></h1>
+            </div>
+            <?php echo $this->render('_like',['model' => $model, 'like' => $like]); ?>
+        </div>
+
+        <div class="content">
+            <p><?php echo ($model->activeStatus ? '<span class="label label-success">Project is active</span>' : '<span class="label label-default">Project is inactive</span>'); ?></p>
+            <p class="updated">This page last updated: <strong><?php echo $model->updateDate; ?> UTC</strong></p>
+            <?php echo HtmlPurifier::process($model->description); ?>
+            <p class="stinger"><?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?></p>
+        </div>
+
     </div>
 
     <div class="crud">

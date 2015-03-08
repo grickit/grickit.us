@@ -3,7 +3,6 @@ use yii\helpers\Html;
 use common\components\StaticURL;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use common\assets\AppAsset;
 
 /* @var $this \yii\web\View */
@@ -25,29 +24,20 @@ AppAsset::register($this);
 <body>
 
 <?php $this->beginBody() ?>
-    <div class="wrap">
-        <?php
-            $navtabs = array(
-              ['label' => 'About', 'url' => ['/site/about']],
-              ['label' => 'Things', 'url' => ['/thing/index']],
-              ['label' => 'Articles', 'url' => ['/article/index']]
-            );
-            if(!Yii::$app->user->isGuest) {
-              $navtabs[] = ['label' => 'Logout ('.Yii::$app->user->identity->username.')', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']];
-            }
+    <div class="header">
+        <div class="container">
+            <a href="/" class="brand">grickit.us</a>
 
-            NavBar::begin([
-                'brandLabel' => 'grickit.us',
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => ['class' => 'navbar-inverse navbar-fixed-top'],
-            ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => $navtabs
-            ]);
-            NavBar::end();
-        ?>
+            <ul class="navbar">
+                <li><a href="/site/about">About</a></li>
+                <li><a href="/things">Things</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <?php if(!Yii::$app->user->isGuest) { echo '<li><a href="/site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>'; } ?>
+            </ul>
+        </div>
+    </div>
 
+    <div class="page">
         <div class="container">
             <div class="alert alert-warning" role="alert"><strong>Heads up!</strong> This site is still very much a work in progress.</div>
             <?php echo $content; ?>
