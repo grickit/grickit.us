@@ -11,7 +11,8 @@
     <?php
       foreach($dataProvider->getModels() as $thing) {
         $thing = new Thing($thing);
-        echo $this->render('_tile',['model' => $thing]);
+        $like = $thing->findLike();
+        echo $this->render('_tile',['model' => $thing, 'like' => $like]);
       }
 
     ?>

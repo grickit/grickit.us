@@ -4,6 +4,7 @@ namespace front\controllers;
 
 use Yii;
 use front\models\thing;
+use front\models\like;
 use yii\data\SqlDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,15 +36,30 @@ class ThingController extends Controller {
 
 
     public function actionView($name) {
-        return $this->render('view', ['model' => $this->findModelByName($name)]);
+        $model = $this->findModelByName($name);
+
+        if(isset($_POST['like']) && $_POST['like'] == $model->id && ($like = $model->findLike()) === null) {
+            $like = new like();
+            $like->modelType = 'thing';
+            $like->modelName = $model->nameSafe;
+            if($like->save()) {
+                $model->voteCount++;
+                $model->save();
+            }
+        }
+        elseif(isset($_POST['unlike']) && $_POST['unlike'] == $model->id && ($like = $model->findLike()) !== null) {
+            if($like && $like->delete()) {
+                $model->voteCount--;
+                $model->save();
+            }
+        }
+
+        return $this->render('view', ['model' => $model]);
     }
 
 
     public function actionCreate() {
         $model = new thing();
-        $model->activeStatus = 1;
-        $model->createDate = date('Y-m-d H:i:s',time());
-        $model->updateDate = date('Y-m-d H:i:s',time());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['thing/view/'.$model->nameSafe]);
