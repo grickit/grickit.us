@@ -38,7 +38,7 @@ class ThingController extends Controller {
     public function actionView($name) {
         $model = $this->findModelByName($name);
 
-        if(isset($_POST['like']) && $_POST['like'] == $model->id && ($like = $model->findLike()) === null) {
+        if(isset($_POST['like']) && $_POST['like'] == $model->id && ($like = $model->findLike()) === false) {
             $like = new like();
             $like->modelType = 'thing';
             $like->modelName = $model->nameSafe;
@@ -47,7 +47,7 @@ class ThingController extends Controller {
                 $model->save();
             }
         }
-        elseif(isset($_POST['unlike']) && $_POST['unlike'] == $model->id && ($like = $model->findLike()) !== null) {
+        elseif(isset($_POST['unlike']) && $_POST['unlike'] == $model->id && ($like = $model->findLike()) !== false) {
             if($like && $like->delete()) {
                 $model->voteCount--;
                 $model->save();
