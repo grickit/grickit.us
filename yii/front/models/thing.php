@@ -20,6 +20,13 @@ class thing extends \yii\db\ActiveRecord {
         ];
     }
 
+    public function scenarios() {
+        return [
+            'create' => ['name', 'nameSafe', 'description', 'linkURL', 'activeStatus'],
+            'update' => ['name', 'description', 'linkURL', 'activeStatus']
+        ];
+    }
+
     public function attributeLabels() {
         return [
             'id' => 'ID',

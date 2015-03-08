@@ -59,7 +59,7 @@ class ThingController extends Controller {
 
 
     public function actionCreate() {
-        $model = new thing();
+        $model = new thing(['scenario' => 'create']);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['thing/view/'.$model->nameSafe]);
@@ -72,7 +72,7 @@ class ThingController extends Controller {
 
     public function actionUpdate($id) {
         $model = $this->findModelByID($id);
-        $model->updateDate = date('Y-m-d H:i:s',time());
+        $model->scenario = 'update';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['thing/view/'.$model->nameSafe]);
