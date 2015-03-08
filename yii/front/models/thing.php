@@ -22,6 +22,7 @@ class thing extends \yii\db\ActiveRecord {
 
     public function scenarios() {
         return [
+            'default' => [],
             'create' => ['name', 'nameSafe', 'description', 'linkURL', 'activeStatus'],
             'update' => ['name', 'description', 'linkURL', 'activeStatus']
         ];
@@ -41,9 +42,6 @@ class thing extends \yii\db\ActiveRecord {
     }
 
     public function findLike() {
-        /*if (($like = like::findOne(['modelType' => 'thing', 'modelName' => $this->nameSafe, 'createAddr' => $_SERVER['REMOTE_ADDR'], 'createDate' < ])) !== null) {
-            return $like;
-        }*/
         if(($like = like::find()
             ->where(['=','modelType','thing'])
             ->andWhere(['=','modelName',$this->nameSafe])
@@ -59,14 +57,17 @@ class thing extends \yii\db\ActiveRecord {
 
     public function init() {
         $this->createDate = date('Y-m-d H:i:s',time());
+        $this->updateDate = date('Y-m-d H:i:s',time());
         $this->activeStatus = 1;
 
         return parent::init();
     }
 
     public function beforeSave($insert) {
-        $this->updateDate = date('Y-m-d H:i:s',time());
-     
+        if($this->scenario === 'update') {
+            $this->updateDate = date('Y-m-d H:i:s',time());
+        }
+
         return parent::beforeSave($insert);
     }
 
