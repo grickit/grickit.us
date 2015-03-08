@@ -7,7 +7,6 @@
 ?>
 
 <div class="thing index">
-
     <?php
       foreach($dataProvider->getModels() as $thing) {
         $thing = new Thing($thing);
@@ -19,11 +18,10 @@
     <div class="clear"></div>
 
     <div class="crud">
-    <?php
-        if (!\Yii::$app->user->isGuest) {
-            echo Html::a('Add Thing', ['create'], ['class' => 'btn btn-success']);
-        }
-    ?>
+        <?php
+            if (!\Yii::$app->user->isGuest) {
+                echo Html::a('Add Thing', ['create'], ['class' => 'btn btn-success']);
+            }
+        ?>
     </div>
-
 </div>
