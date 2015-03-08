@@ -7,15 +7,12 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\LoginForm;
-use front\models\ContactForm;
 
-class SiteController extends Controller
-{
+class SiteController extends Controller {
 
     public $layout = '../../../common/views/layouts/main';
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -37,8 +34,7 @@ class SiteController extends Controller
         ];
     }
 
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -50,13 +46,11 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         return $this->render('index');
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin() {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -71,15 +65,17 @@ class SiteController extends Controller
         }
     }
 
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
 
-    public function actionAbout()
-    {
+    public function actionAbout() {
         return $this->render('about');
+    }
+
+    public function actionBase() {
+        return $this->render('base');
     }
 }
