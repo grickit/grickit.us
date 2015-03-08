@@ -28,7 +28,7 @@ class ThingController extends Controller {
 
     public function actionIndex() {
         $dataProvider = new SqlDataProvider([
-            'sql' => 'SELECT * FROM front_things ORDER BY ((GREATEST((30-((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(updateDate))/86400)),0)) + (LOG10(voteCount+1)*(voteCount/((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(createDate))/86400))*10)) DESC',
+            'sql' => 'SELECT * FROM front_things WHERE publishedStatus = 1 ORDER BY ((GREATEST((30-((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(updateDate))/86400)),0)) + (LOG10(voteCount+1)*(voteCount/((UNIX_TIMESTAMP(UTC_TIMESTAMP()) - UNIX_TIMESTAMP(createDate))/86400))*10)) DESC',
         ]);
 
         return $this->render('index',['dataProvider' => $dataProvider]);
