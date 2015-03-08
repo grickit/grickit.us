@@ -12,7 +12,7 @@ class thing extends \yii\db\ActiveRecord {
 
     public function rules() {
         return [
-            [['name', 'nameSafe', 'linkURL', 'description'], 'required'],
+            [['name', 'nameSafe', 'description'], 'required'],
             [['activeStatus'], 'integer', 'max' => 1],
             [['name'], 'string', 'max' => 50],
             [['linkURL'], 'string', 'max' => 300],
