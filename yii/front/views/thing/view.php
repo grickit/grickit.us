@@ -19,7 +19,7 @@
             <p><?php echo ($model->activeStatus ? '<span class="label label-success">Project is active</span>' : '<span class="label label-default">Project is inactive</span>'); ?></p>
             <p class="updated">This page last updated: <strong><?php echo $model->updateDate; ?> UTC</strong></p>
             <?php echo HtmlPurifier::process($model->description); ?>
-            <p class="stinger"><?php echo Html::a('Project homepage', $model->linkURL, array('target' => '_blank')); ?></p>
+            <p class="stinger"><?php echo ($model->linkURL ? Html::a('Project homepage', $model->linkURL, array('target' => '_blank')) : '' ); ?></p>
         </div>
 
     </div>
