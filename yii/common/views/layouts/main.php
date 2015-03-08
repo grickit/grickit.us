@@ -39,7 +39,7 @@ AppAsset::register($this);
 
     <div class="page">
         <div class="container">
-            <div class="alert alert-warning" role="alert"><strong>Heads up!</strong> This site is still very much a work in progress.</div>
+            <div class="alert alert-warning" role="alert"><strong>Heads up!</strong> This site is missing hella content, yo.</div>
             <?php echo $content; ?>
         </div>
     </div>
