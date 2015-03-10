@@ -6,7 +6,7 @@
 ?>
 
 <div class="site about">
-  <div class="article">
+  <div class="document">
 
     <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/site/banner','about.png'); ?>');">
         <div class="title">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="content">
-        <p class="updated">This page last updated: <strong><?php echo date('Y-m-d H:i:s',filemtime(__FILE__)) ?> UTC</strong></p>
+        <p class="time">Last updated: <strong><?php echo date('Y-m-d H:i:s',filemtime(__FILE__)) ?> UTC</strong></p>
         <p>Succinct version: I'm a feminist dork from the internet. I have way too many hobbies and projects and interests. This website serves to quasi-organize them.</p>
         <p>
           <ul>

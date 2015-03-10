@@ -5,10 +5,10 @@
 
     $this->title = $model->name;
 ?>
-<div class="thing">
+<div class="document view">
     <div class="document">
 
-        <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/thing/banner',$model->nameSafe.'.png'); ?>');">
+        <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/article/banner',$model->nameSafe.'.png'); ?>');">
             <div class="title">
                 <h1><?php echo Html::encode($this->title); ?></h1>
             </div>
@@ -16,10 +16,9 @@
         </div>
 
         <div class="content">
-            <p><?php echo ($model->activeStatus ? '<span class="label label-success">Project is active</span>' : '<span class="label label-default">Project is inactive</span>'); ?></p>
+            <p class="time">Published: <strong><?php echo $model->createDate; ?> UTC</strong></p>
             <p class="time">Last updated: <strong><?php echo $model->updateDate; ?> UTC</strong></p>
             <?php echo HtmlPurifier::process($model->content); ?>
-            <p class="stinger"><?php echo ($model->linkURL ? Html::a('Project homepage', $model->linkURL, array('target' => '_blank')) : '' ); ?></p>
         </div>
 
     </div>

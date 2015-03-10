@@ -3,7 +3,7 @@
   use yii\widgets\ActiveForm;
 ?>
 
-<div class="thing form">
+<div class="article form">
 
     <?php
       $form = ActiveForm::begin();
@@ -16,8 +16,6 @@
         echo $form->field($model,'name')->textInput(['maxlength' => 100]);
         echo $form->field($model,'nameSafe')->textInput(['maxlength' => 100, 'disabled' => ($model->isNewRecord ? null : 'disabled')]);
         echo $form->field($model,'content')->textArea(['maxlength' => 10000, 'rows' => 10]);
-        echo $form->field($model,'linkURL')->textInput(['maxlength' => 300]);
-        echo $form->field($model,'activeStatus')->checkBox(array('value' => 1, 'uncheckValue' => 0));
         echo $form->field($model,'publishedStatus')->checkBox(array('value' => 1, 'uncheckValue' => 0));
       ?>
     </div>

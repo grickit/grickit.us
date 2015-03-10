@@ -4,18 +4,17 @@ namespace front\models;
 
 use Yii;
 
-class thing extends \yii\db\ActiveRecord {
+class article extends \yii\db\ActiveRecord {
 
     public static function tableName() {
-        return 'front_things';
+        return 'front_articles';
     }
 
     public function rules() {
         return [
             [['name', 'nameSafe', 'content'], 'required'],
-            [['activeStatus', 'publishedStatus'], 'integer', 'max' => 1],
+            [['publishedStatus'], 'integer', 'max' => 1],
             [['name', 'nameSafe'], 'string', 'max' => 100],
-            [['linkURL'], 'string', 'max' => 300],
             [['content'], 'string', 'max' => 10000]
         ];
     }
@@ -23,8 +22,8 @@ class thing extends \yii\db\ActiveRecord {
     public function scenarios() {
         return [
             'default' => [],
-            'create' => ['name', 'nameSafe', 'content', 'linkURL', 'activeStatus', 'publishedStatus'],
-            'update' => ['name', 'content', 'linkURL', 'activeStatus', 'publishedStatus']
+            'create' => ['name', 'nameSafe', 'content', 'publishedStatus'],
+            'update' => ['name', 'content', 'publishedStatus']
         ];
     }
 
@@ -35,18 +34,16 @@ class thing extends \yii\db\ActiveRecord {
             'updateDate' => 'Last Updated',
             'name' => 'Name',
             'nameSafe' => 'Internal Name',
-            'linkURL' => 'Link',
-            'content' => 'Description',
+            'content' => 'Content',
             'voteCount' => 'Likes',
             'activeStatus' => 'Is active?',
-            'publishStatus' => 'Publish publicly?'
-
+            'publishStatus' => 'Publish publicly?',
         ];
     }
 
     public function findLike() {
         if(($like = like::find()
-            ->where(['=','modelType','thing'])
+            ->where(['=','modelType','article'])
             ->andWhere(['=','modelName',$this->nameSafe])
             ->andWhere(['=','createAddr',$_SERVER['REMOTE_ADDR']])
             ->andWhere(['>=','createDate',date('Y-m-d H:i:s',time()-604800)])
@@ -61,7 +58,6 @@ class thing extends \yii\db\ActiveRecord {
     public function init() {
         $this->createDate = date('Y-m-d H:i:s',time());
         $this->updateDate = date('Y-m-d H:i:s',time());
-        $this->activeStatus = 1;
         $this->publishedStatus = 1;
 
         return parent::init();
