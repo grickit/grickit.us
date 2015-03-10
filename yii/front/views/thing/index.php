@@ -5,7 +5,7 @@
     $this->title = 'Things';
 ?>
 
-<div class="thing index">
+<div class="thing index centered">
     <?php
       foreach($dataProvider->getModels() as $thing) {
         $thing = new Thing($thing);

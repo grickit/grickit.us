@@ -78,4 +78,9 @@ class SiteController extends Controller {
     public function actionBase() {
         return $this->render('base');
     }
+
+    public function actionAusmerica() {
+        return $this->render('ausmerica');
+    }
+
 }
