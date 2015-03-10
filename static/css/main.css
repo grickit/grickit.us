@@ -191,8 +191,9 @@ body {
 }
 
 .document .title {
-    position: relative;
-    top: 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
 
     padding: 10px 20px 10px 20px;
 
@@ -234,39 +235,34 @@ body {
 /* ======= ======= TILES ======= ======= */
 /* ======= ======= ===== ======= ======= */
 
-.thing.tile,
-.thing.tile .link {
+.thing.tile:not(.link) {
     width: 255px;
     height: 170px;
-}
-
-.thing.tile {
     margin: 10px;
 }
 
-.article.tile,
-.article.tile .link {
+.article.tile:not(.link) {
     width: 100%;
     min-width: 255px;
     height: 150px;
-}
-
-.article.tile {
     margin: 10px 0px 10px 0px;
 }
 
-.tile {
+.tile:not(.link) {
     position: relative;
 
     display: inline-block;
+    border: 1px solid #FFFFFF;
 
     text-align: left;
 }
 
 .tile .link {
+    width: 100%;
+    height: 100%;
+
     display: block;
 
-    border: 1px solid #FFFFFF;
     background-repeat: no-repeat;
     background-position: center;
 
@@ -274,11 +270,11 @@ body {
 }
 
 .tile .blurb {
-    position: relative;
-    top: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
 
     display: block;
-    padding: 5px;
 
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
@@ -287,12 +283,12 @@ body {
 
 .tile .title {
     display: block;
-    margin: 5px 10px 5px 10px;
+    padding: 5px 0px 5px 10px;
 }
 
 .tile .summary {
     display: block;
-    margin: 5px 30px 5px 30px;
+    padding: 5px 0px 5px 30px;
 
     font-style: italic;
 }
