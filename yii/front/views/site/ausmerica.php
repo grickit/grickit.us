@@ -1,12 +1,14 @@
 <?php
+    use common\components\StaticURL;
+
     $this->title = 'Ausmerica';
 ?>
 <div class="site index centered" style="background-color: #FFFFFF; margin-bottom: 10px;">
     <div style="display: inline-block; text-align: left; max-width: 620px; font-family: Arial serif">
 
       <div style="padding: 5px; padding-bottom: 10px; border-bottom: 1px solid #AAAAAA;">
-        <img src="http://i.imgur.com/ISCZ0s4.png" title="People pay for less.">
-        <img src="http://i.imgur.com/SvPiUc0.png" title="People pay for lemons." style="float: right;">
+        <img src="<?php echo StaticURL::make('images/ausmerica','ausmericaexe.png'); ?>" title="People pay for less.">
+        <img src="<?php echo StaticURL::make('images/ausmerica','lemon.png'); ?>" title="People pay for lemons." style="float: right;">
       </div>
 
       <div style="padding: 5px;">
@@ -52,7 +54,7 @@
       <div style="width: 300px; float: left; padding: 5px; margin: 10px 0px 30px 10px; min-height: 420px; border-top: 1px solid #AAAAAA; border-bottom: 1px solid #AAAAAA;">
 
           <p><strong><em>"But how much does all this cost me?"</em></strong></p>
-          <img src="http://i.imgur.com/uq9MaOq.png">
+          <img src="<?php echo StaticURL::make('images/ausmerica','3995.png'); ?>">
 
           <p style="font-size: 90%; font-weight: bold;">
             In real money, that's less than <a href="javascript:void(0);" title="A horse, for example, would cost much more than Ausmerica.exe.">many things</a>, yet with Ausmerica.exe you get the complete set of thirteen 8" floppy disks for this one-time low, low price.
