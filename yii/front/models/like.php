@@ -20,7 +20,7 @@ class like extends \yii\db\ActiveRecord {
             'createDate' => 'Created',
             'updateDate' => 'Last Updated',
             'modelType' => 'Type',
-            'modelName' => 'Name',
+            'modelID' => 'Name',
             'createAddr' => 'IP Address'
         ];
     }

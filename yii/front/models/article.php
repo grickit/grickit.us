@@ -44,7 +44,7 @@ class article extends \yii\db\ActiveRecord {
     public function findLike() {
         if(($like = like::find()
             ->where(['=','modelType','article'])
-            ->andWhere(['=','modelName',$this->nameSafe])
+            ->andWhere(['=','modelID',$this->id])
             ->andWhere(['=','createAddr',$_SERVER['REMOTE_ADDR']])
             ->andWhere(['>=','createDate',date('Y-m-d H:i:s',time()-604800)])
             ->one()) !== null) {

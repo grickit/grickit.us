@@ -41,7 +41,7 @@ class ThingController extends Controller {
         if(isset($_POST['like']) && $_POST['like'] == $model->id && ($like = $model->findLike()) === false) {
             $like = new like();
             $like->modelType = 'thing';
-            $like->modelName = $model->nameSafe;
+            $like->modelID = $model->id;
             if($like->save()) {
                 $model->voteCount++;
                 $model->save();
