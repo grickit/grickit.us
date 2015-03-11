@@ -71,10 +71,6 @@ class SiteController extends Controller {
         return $this->goHome();
     }
 
-    public function actionAbout() {
-        return $this->render('about');
-    }
-
     public function actionBase() {
         return $this->render('base');
     }

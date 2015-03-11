@@ -29,7 +29,7 @@ AppAsset::register($this);
             <a href="/" class="brand">grickit.us</a>
 
             <ul class="navbar">
-                <li><a href="/site/about">About</a></li>
+                <li><a href="/article/view/about">About</a></li>
                 <li><a href="/things">Things</a></li>
                 <li><a href="/articles">Articles</a></li>
                 <?php if(!Yii::$app->user->isGuest) { echo '<li><a href="/site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>'; } ?>

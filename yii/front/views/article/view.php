@@ -8,7 +8,7 @@
 <div class="document view">
     <div class="document">
 
-        <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/article/banner',$model->nameSafe.'.png'); ?>');">
+        <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/article',$model->nameSafe.'.png'); ?>');">
             <div class="title">
                 <h1><?php echo Html::encode($this->title); ?></h1>
             </div>

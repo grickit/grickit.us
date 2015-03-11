@@ -264,7 +264,7 @@ body {
     display: block;
 
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top center;
 
     color: #FFFFFF;
 }
@@ -290,6 +290,7 @@ body {
     display: block;
     padding: 5px 0px 5px 30px;
 
+    font-size: 90%;
     font-style: italic;
 }
 
