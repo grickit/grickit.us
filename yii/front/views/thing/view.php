@@ -10,7 +10,7 @@
 
         <div class="banner" style="background-image: url('<?php echo StaticURL::make('images/thing/banner',$model->nameSafe.'.png'); ?>');">
             <div class="title">
-                <h1><?php echo Html::encode($this->title); ?></h1>
+                <?php echo Html::encode($this->title); ?>
             </div>
             <?php echo $this->render('_like',['model' => $model, 'like' => $like]); ?>
         </div>
