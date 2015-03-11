@@ -291,7 +291,7 @@ body {
 
 .tile .summary {
     display: block;
-    padding: 0px 0px 0px 30px;
+    padding: 5px 0px 0px 30px;
 
     font-size: 90%;
     font-style: italic;
