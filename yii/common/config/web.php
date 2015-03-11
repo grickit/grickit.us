@@ -45,6 +45,9 @@ $config = [
         'StaticURL' => [
             'class' => 'common\components\StaticURL'
         ],
+        'SafeName' => [
+            'class' => 'common\components\SafeName'
+        ]
     ],
     'params' => $params,
     'runtimePath' => dirname(__DIR__).'/runtime'
