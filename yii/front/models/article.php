@@ -3,6 +3,7 @@
 namespace front\models;
 
 use Yii;
+use common\components\SafeName;
 
 class article extends \yii\db\ActiveRecord {
 
@@ -12,9 +13,9 @@ class article extends \yii\db\ActiveRecord {
 
     public function rules() {
         return [
-            [['name', 'nameSafe', 'content'], 'required'],
+            [['name', 'content'], 'required'],
             [['publishedStatus'], 'integer', 'max' => 1],
-            [['name', 'nameSafe'], 'string', 'max' => 100],
+            [['name'], 'string', 'max' => 100],
             [['content'], 'string', 'max' => 10000]
         ];
     }
@@ -22,7 +23,7 @@ class article extends \yii\db\ActiveRecord {
     public function scenarios() {
         return [
             'default' => [],
-            'create' => ['name', 'nameSafe', 'content', 'publishedStatus'],
+            'create' => ['name', 'content', 'publishedStatus'],
             'update' => ['name', 'content', 'publishedStatus']
         ];
     }
@@ -66,6 +67,9 @@ class article extends \yii\db\ActiveRecord {
     public function beforeSave($insert) {
         if($this->scenario === 'update') {
             $this->updateDate = date('Y-m-d H:i:s',time());
+        }
+        elseif($this->scenario === 'create') {
+            $this->nameSafe = SafeName::make($this->name);
         }
 
         return parent::beforeSave($insert);
