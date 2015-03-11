@@ -56,6 +56,13 @@ class article extends \yii\db\ActiveRecord {
         }
     }
 
+    public function getSummary() {
+        if(preg_match("/^<p>(.+)<\/p>/U",$this->content,$matches) === 1) {
+            return $matches[0];
+        }
+        return '';
+    }
+
     public function init() {
         $this->createDate = date('Y-m-d H:i:s',time());
         $this->updateDate = date('Y-m-d H:i:s',time());
