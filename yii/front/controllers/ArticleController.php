@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 
 class ArticleController extends Controller {
 
-    public $layout = '/../../../common/views/layouts/main';
+    public $layout = '//main';
 
     public function behaviors() {
         return [

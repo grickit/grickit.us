@@ -10,7 +10,7 @@ use common\models\LoginForm;
 
 class SiteController extends Controller {
 
-    public $layout = '../../../common/views/layouts/main';
+    public $layout = '//main';
 
     public function behaviors() {
         return [
