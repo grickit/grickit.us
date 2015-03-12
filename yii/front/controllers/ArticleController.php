@@ -4,7 +4,6 @@ namespace front\controllers;
 
 use Yii;
 use front\models\article;
-use front\models\like;
 use yii\data\SqlDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -38,23 +37,14 @@ class ArticleController extends Controller {
     public function actionView($name) {
         $model = $this->findModelByName($name);
 
-        if(isset($_POST['like']) && $_POST['like'] == $model->id && ($like = $model->findLike()) === false) {
-            $like = new like();
-            $like->modelType = 'article';
-            $like->modelID = $model->id;
-            if($like->save()) {
-                $model->voteCount++;
-                $model->save();
-            }
+        if(isset($_POST['like']) && $_POST['like'] == $model->id && $model->like()) {
+            $model->save();
         }
-        elseif(isset($_POST['unlike']) && $_POST['unlike'] == $model->id && ($like = $model->findLike()) !== false) {
-            if($like && $like->delete()) {
-                $model->voteCount--;
-                $model->save();
-            }
+        elseif(isset($_POST['unlike']) && $_POST['unlike'] == $model->id && $model->unlike()) {
+            $model->save();
         }
 
-        return $this->render('view', ['model' => $model, 'like' => $model->findLike()]);
+        return $this->render('view', ['model' => $model]);
     }
 
 

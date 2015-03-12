@@ -9,8 +9,7 @@
     <?php
       foreach($dataProvider->getModels() as $article) {
         $article = new Article($article);
-        $like = $article->findLike();
-        echo $this->render('_tile',['model' => $article, 'like' => $like]);
+        echo $this->render('_tile',['model' => $article]);
       }
 
     ?>

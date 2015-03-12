@@ -42,7 +42,7 @@ class article extends \yii\db\ActiveRecord {
         ];
     }
 
-    public function findLike() {
+    public function getLike() {
         if(($like = like::find()
             ->where(['=','modelType','article'])
             ->andWhere(['=','modelID',$this->id])
@@ -54,6 +54,29 @@ class article extends \yii\db\ActiveRecord {
         else {
             return false;
         }
+    }
+
+    public function like() {
+        if($this->like === false) {
+            $like = new like();
+            $like->modelType = 'article';
+            $like->modelID = $this->id;
+            if($like->save()) {
+                $this->voteCount++;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function unlike() {
+        if(($like = $this->like) !== false) {
+            if($like->delete()) {
+                $this->voteCount--;
+                return true;
+            }
+        }
+        return false;
     }
 
     public function getSummary() {

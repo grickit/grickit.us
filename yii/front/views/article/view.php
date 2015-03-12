@@ -12,7 +12,7 @@
             <div class="title">
                 <?php echo Html::encode($this->title); ?>
             </div>
-            <?php echo $this->render('_like',['model' => $model, 'like' => $like]); ?>
+            <?php echo $this->render('_like',['model' => $model, 'like' => $model->like]); ?>
         </div>
 
         <div class="content">
