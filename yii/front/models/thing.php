@@ -47,21 +47,15 @@ class thing extends \yii\db\ActiveRecord {
     }
 
     public function getLike() {
-        if(($like = like::find()
+        return $this->hasOne(like::className(),['modelID' => 'id'])
             ->where(['=','modelType','thing'])
-            ->andWhere(['=','modelID',$this->id])
             ->andWhere(['=','createAddr',$_SERVER['REMOTE_ADDR']])
             ->andWhere(['>=','createDate',date('Y-m-d H:i:s',time()-604800)])
-            ->one()) !== null) {
-            return $like;
-        }
-        else {
-            return false;
-        }
+            ->one();
     }
 
     public function like() {
-        if($this->like === false) {
+        if($this->like === null) {
             $like = new like();
             $like->modelType = 'thing';
             $like->modelID = $this->id;
@@ -74,7 +68,7 @@ class thing extends \yii\db\ActiveRecord {
     }
 
     public function unlike() {
-        if(($like = $this->like) !== false) {
+        if(($like = $this->like) !== null) {
             if($like->delete()) {
                 $this->voteCount--;
                 return true;
