@@ -48,7 +48,7 @@ class thing extends \yii\db\ActiveRecord {
 
     public function getLike() {
         return $this->hasOne(like::className(),['modelID' => 'id'])
-            ->where(['=','modelType','thing'])
+            ->where(['=','modelType',$this->className()])
             ->andWhere(['=','createAddr',$_SERVER['REMOTE_ADDR']])
             ->andWhere(['>=','createDate',date('Y-m-d H:i:s',time()-604800)])
             ->one();
@@ -57,7 +57,7 @@ class thing extends \yii\db\ActiveRecord {
     public function like() {
         if($this->like === null) {
             $like = new like();
-            $like->modelType = 'thing';
+            $like->modelType = $this->className();
             $like->modelID = $this->id;
             if($like->save()) {
                 $this->voteCount++;
