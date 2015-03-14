@@ -5,7 +5,7 @@ $bootstrap = require(__DIR__.'/bootstrap.php');
 
 $config = [
     'basePath' => dirname(__DIR__),
-    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'vendorPath' => dirname(dirname(dirname(__DIR__))) . '/vendor',
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
@@ -28,7 +28,13 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=grickit.us',
+            'username' => DBUSER,
+            'password' => DBPASS,
+            'charset' => 'utf8',
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -40,6 +46,13 @@ $config = [
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:view>/<name:\w+>' => '<controller>/view'
             ],
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'yii\web\JqueryAsset' => ['js'=>[]],
+                'yii\bootstrap\BootstrapPluginAsset' => ['js'=>[]],
+                'yii\bootstrap\BootstrapAsset' => ['css' => []]
+            ]
         ],
         'StaticURL' => [
             'class' => 'common\components\StaticURL'

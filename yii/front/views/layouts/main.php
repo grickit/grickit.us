@@ -3,12 +3,10 @@ use yii\helpers\Html;
 use common\components\StaticURL;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use common\assets\AppAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-AppAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -19,13 +17,14 @@ AppAsset::register($this);
     <?php echo Html::csrfMetaTags(); ?>
     <title><?php echo 'Grickit: '.Html::encode($this->title); ?></title>
     <?php $this->head(); ?>
+    <link rel="stylesheet" href="<?php echo StaticURL::make('css','bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo StaticURL::make('css','main.css'); ?>">
 </head>
 <body>
 
 <?php $this->beginBody() ?>
-    <div class="header">
-        <div class="container">
+    <header class="header">
+        <nav class="container">
             <a href="/" class="brand">grickit.us</a>
 
             <ul class="navbar">
@@ -34,8 +33,8 @@ AppAsset::register($this);
                 <li><a href="/articles">Articles</a></li>
                 <?php if(!Yii::$app->user->isGuest) { echo '<li><a href="/site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>'; } ?>
             </ul>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <div class="page">
         <div class="container">
@@ -51,6 +50,7 @@ AppAsset::register($this);
         </div>
     </footer>
 
+<script src="<?php echo StaticURL::make('javascript','jquery.min.js'); ?>"></script>
 <?php $this->endBody(); ?>
 </body>
 </html>
