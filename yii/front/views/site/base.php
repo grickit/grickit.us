@@ -65,4 +65,4 @@
     </div>
 </div>
 
-<?php $this->registerJsFile(StaticURL::make('javascript','base.js'),['depends' => [\yii\web\JqueryAsset::className()]]); ?>
+<?php $this->registerJsFile(StaticURL::make('javascript','base.js'),['depends' => ['yii\web\JqueryAsset']]); ?>

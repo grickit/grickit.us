@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php echo Html::csrfMetaTags(); ?>
     <title><?php echo 'Grickit: '.Html::encode($this->title); ?></title>
-    <?php $this->registerCSSFile(StaticURL::make('css','front.css')); ?>
+    <?php $this->registerCSSFile(StaticURL::make('css','front.css'),['depends' => ['yii\bootstrap\BootstrapAsset']]); ?>
     <?php $this->head(); ?>
 </head>
 <body>
