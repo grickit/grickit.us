@@ -49,9 +49,31 @@ $config = [
         ],
         'assetManager' => [
             'bundles' => [
-                'yii\web\JqueryAsset' => ['js'=>[]],
-                'yii\bootstrap\BootstrapPluginAsset' => ['js'=>[]],
-                'yii\bootstrap\BootstrapAsset' => ['css' => []]
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '//static.'.$_SERVER['MACHINE'],
+                    'css'=>['css/'.filemtime('/var/www/grickit.us/static/css/bootstrap.min.css').'_bootstrap.min.css']
+                ],
+                'yii\web\JqueryAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '//static.'.$_SERVER['MACHINE'],
+                    'js'=>['javascript/'.filemtime('/var/www/grickit.us/static/javascript/jquery.min.js').'_jquery.min.js']
+                ],
+                'yii\widgets\ActiveFormAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '//static.'.$_SERVER['MACHINE'],
+                    'js'=>['javascript/'.filemtime('/var/www/grickit.us/static/javascript/yii_activeform.js').'_yii_activeform.js']
+                ],
+                'yii\validators\ValidationAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '//static.'.$_SERVER['MACHINE'],
+                    'js'=>['javascript/'.filemtime('/var/www/grickit.us/static/javascript/yii_validation.js').'_yii_validation.js']
+                ],
+                'yii\web\YiiAsset' => [
+                    'sourcePath' => null,
+                    'baseUrl' => '//static.'.$_SERVER['MACHINE'],
+                    'js'=>['javascript/'.filemtime('/var/www/grickit.us/static/javascript/yii.js').'_yii.js']
+                ],
             ]
         ],
         'StaticURL' => [

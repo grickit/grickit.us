@@ -1,12 +1,9 @@
 <?php
-use yii\helpers\Html;
-use common\components\StaticURL;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+    use yii\helpers\Html;
+    use common\components\StaticURL;
+    use common\assets\AppAsset;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
+    AppAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -16,9 +13,8 @@ use yii\bootstrap\NavBar;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php echo Html::csrfMetaTags(); ?>
     <title><?php echo 'Grickit: '.Html::encode($this->title); ?></title>
+    <?php $this->registerCSSFile(StaticURL::make('css','front.css')); ?>
     <?php $this->head(); ?>
-    <link rel="stylesheet" href="<?php echo StaticURL::make('css','bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo StaticURL::make('css','main.css'); ?>">
 </head>
 <body>
 
@@ -50,7 +46,6 @@ use yii\bootstrap\NavBar;
         </div>
     </footer>
 
-<script src="<?php echo StaticURL::make('javascript','jquery.min.js'); ?>"></script>
 <?php $this->endBody(); ?>
 </body>
 </html>
