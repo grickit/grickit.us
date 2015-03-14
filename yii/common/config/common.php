@@ -1,7 +1,6 @@
 <?php
 
 require(__DIR__.'/constants.php');
-$params = require(__DIR__.'/params.php');
 $bootstrap = require(__DIR__.'/bootstrap.php');
 
 $config = [
@@ -49,7 +48,9 @@ $config = [
             'class' => 'common\components\SafeName'
         ]
     ],
-    'params' => $params,
+    'params' => [
+        'adminEmail' => 'thegrickit@gmail.com',
+    ],
     'runtimePath' => dirname(__DIR__).'/runtime'
 ];
 

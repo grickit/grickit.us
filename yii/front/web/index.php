@@ -8,8 +8,8 @@ require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 
 $config = yii\helpers\ArrayHelper::merge(
-    require(__DIR__ . '/../../common/config/web.php'),
-    require(__DIR__ . '/../config/main.php')
+    require(__DIR__ . '/../../common/config/common.php'),
+    require(__DIR__ . '/../config/front.php')
 );
 
 (new yii\web\Application($config))->run();

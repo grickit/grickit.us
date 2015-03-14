@@ -1,10 +1,5 @@
 <?php
 
-$params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/params.php')
-);
-
 return [
     'id' => 'app-front',
     'basePath' => dirname(__DIR__),
@@ -28,5 +23,7 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
-    'params' => $params,
+    'params' => [
+        'adminEmail' => 'thegrickit@gmail.com',
+    ],
 ];
