@@ -185,30 +185,20 @@ h1 {
 
 .social {
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.slideshow {
-    margin: 20px 0px 20px 0px;
-
-    text-align: center;
+.content p:first-of-type {
+    font-size: 120%;
+    font-style: italic;
 }
 
-img.scale {
-    max-width: 700px;
-    width: 100%;
-    height: auto;
-
-    display: inline-block;
-    outline: 0;
+.content p {
+    line-height: 180%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
-.slideshow img.active {
-    display: inline-block;
-}
-
-.slideshow img:not(.active) {
-    display: none;
-}
 
 /* ======= ======= ====== ======= ======= */
 /* ======= ======= FOOTER ======= ======= */
@@ -222,4 +212,33 @@ img.scale {
 .footer .container {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+
+
+
+/* ======= ======= ========= ======= ======= */
+/* ======= ======= SLIDESHOW ======= ======= */
+/* ======= ======= ========= ======= ======= */
+.slideshow {
+    margin: 20px 0px 20px 0px;
+
+    text-align: center;
+}
+
+.slideshow img.active {
+    display: inline-block;
+}
+
+.slideshow img:not(.active) {
+    display: none;
+}
+
+img.scale {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+
+    display: inline-block;
+    outline: 0;
 }
