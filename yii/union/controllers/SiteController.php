@@ -1,14 +1,12 @@
 <?php
 
-namespace front\controllers;
+namespace union\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use common\models\LoginForm;
-
-use front\controllers\ThingController;
 
 class SiteController extends Controller {
 
@@ -48,6 +46,10 @@ class SiteController extends Controller {
         ];
     }
 
+    public function actionIndex() {
+        return $this->render('index');
+    }
+
     public function actionLogin() {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
@@ -67,14 +69,6 @@ class SiteController extends Controller {
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    public function actionBase() {
-        return $this->render('base');
-    }
-
-    public function actionAusmerica() {
-        return $this->render('ausmerica');
     }
 
 }

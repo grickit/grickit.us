@@ -40,12 +40,10 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
-                '' => 'thing/index',
+                '' => 'site/index',
                 '<controller:\w+>s' => '<controller>/index',
                 '<controller:\w+>' => '<controller>/index',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:view>/<name:\w+>' => '<controller>/view',
-                '<controller:\w+>/<action:tagged>/<tag:\w+>' => '<controller>/tagged'
             ],
         ],
         'assetManager' => [

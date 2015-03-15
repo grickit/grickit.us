@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'id' => 'app-front',
+    'id' => 'app-union',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'front\controllers',
+    'controllerNamespace' => 'union\controllers',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
@@ -21,13 +21,6 @@ return [
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-        'urlManager' => [
-            'rules' => [
-                '' => 'thing/index',
-                '<controller:\w+>/<action:view>/<name:\w+>' => '<controller>/view',
-                '<controller:\w+>/<action:tagged>/<tag:\w+>' => '<controller>/tagged'
-            ],
         ],
     ],
     'params' => [
