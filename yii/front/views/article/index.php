@@ -11,7 +11,6 @@
             $article = new Article($article);
             echo $this->render('_tile',['model' => $article]);
         }
-
     ?>
 
     <div class="clear"></div>

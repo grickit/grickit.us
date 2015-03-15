@@ -11,3 +11,5 @@
   <?php echo $this->render('_like',['model' => $model, 'like' => $model->like]); ?>
 
 </div>
+
+<?php echo $this->render('_tags',['model' => $model]); ?>
