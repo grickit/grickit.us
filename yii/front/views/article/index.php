@@ -7,10 +7,10 @@
 
 <div class="post index centered">
     <?php
-      foreach($dataProvider->getModels() as $article) {
-        $article = new Article($article);
-        echo $this->render('_tile',['model' => $article]);
-      }
+        foreach($dataProvider->getModels() as $article) {
+            $article = new Article($article);
+            echo $this->render('_tile',['model' => $article]);
+        }
 
     ?>
 

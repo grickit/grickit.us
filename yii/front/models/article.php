@@ -8,6 +8,8 @@ use common\components\SafeName;
 
 class article extends \yii\db\ActiveRecord {
 
+    protected $_tagstring = '';
+
     public static function tableName() {
         return 'front_articles';
     }
@@ -24,8 +26,8 @@ class article extends \yii\db\ActiveRecord {
     public function scenarios() {
         return [
             'default' => [],
-            'create' => ['name', 'content', 'publishedStatus'],
-            'update' => ['name', 'content', 'publishedStatus']
+            'create' => ['name', 'content', 'publishedStatus', 'tagString'],
+            'update' => ['name', 'content', 'publishedStatus', 'tagString']
         ];
     }
 
@@ -40,6 +42,7 @@ class article extends \yii\db\ActiveRecord {
             'voteCount' => 'Likes',
             'activeStatus' => 'Is active?',
             'publishStatus' => 'Publish publicly?',
+            'tagString' => 'Tags',
         ];
     }
 
@@ -49,6 +52,12 @@ class article extends \yii\db\ActiveRecord {
             ->andWhere(['=','createAddr',$_SERVER['REMOTE_ADDR']])
             ->andWhere(['>=','createDate',date('Y-m-d H:i:s',time()-604800)])
             ->one();
+    }
+
+    public function getTags() {
+        return $this->hasMany(tag::className(),['modelID' => 'id'])
+            ->where(['=','modelType',$this->className()])
+            ->all();
     }
 
     public function like() {
@@ -81,6 +90,43 @@ class article extends \yii\db\ActiveRecord {
         return '';
     }
 
+    public function getTagString() {
+        if($this->_tagstring === '') {
+            $this->_tagstring = '';
+            $delim = '';
+            foreach($this->tags as $tag) {
+                $this->_tagstring .= $delim.$tag->name;
+                $delim = ', ';
+            }
+        }
+
+        return $this->_tagstring;
+    }
+
+    public function setTagString($string) {
+        $this->_tagstring = $string;
+    }
+
+    public function createTags() {
+        $validTags = array();
+
+        foreach($this->tags as $tag) {
+            $tag->delete();
+        }
+
+        foreach(explode(', ',$this->tagString) as $tagName) {
+            $tag = new tag(['scenario' => 'create']);
+            $tag->name = $tagName;
+            $tag->modelType = $this->className();
+            $tag->modelID = $this->id;
+            if($tag->save()) {
+                $validTags[] = $tag->name;
+            }
+        }
+
+        $this->tagString = implode(', ',$validTags);
+    }
+
     public function init() {
         $this->createDate = date('Y-m-d H:i:s',time());
         $this->updateDate = date('Y-m-d H:i:s',time());
@@ -92,9 +138,11 @@ class article extends \yii\db\ActiveRecord {
     public function beforeSave($insert) {
         if($this->scenario === 'update') {
             $this->updateDate = date('Y-m-d H:i:s',time());
+            $this->createTags();
         }
         elseif($this->scenario === 'create') {
             $this->nameSafe = SafeName::make($this->name);
+            $this->createTags();
         }
 
         return parent::beforeSave($insert);

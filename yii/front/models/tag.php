@@ -11,8 +11,12 @@ class tag extends \yii\db\ActiveRecord {
         return 'front_tags';
     }
 
-    public function rules() {
-        return [];
+    public function scenarios() {
+        return [
+            'default' => [],
+            'create' => ['name', 'modelType', 'modelID'],
+            'update' => ['name']
+        ];
     }
 
     public function attributeLabels() {
@@ -21,7 +25,7 @@ class tag extends \yii\db\ActiveRecord {
             'createDate' => 'Created',
             'updateDate' => 'Last Updated',
             'name' => 'Name',
-            'nameSafe' => 'Internal Name'
+            'nameSafe' => 'Internal Name',
             'modelType' => 'Type',
             'modelID' => 'Name'
         ];

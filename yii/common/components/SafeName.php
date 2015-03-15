@@ -8,6 +8,6 @@
   class SafeName extends Component {
 
     public function make($name) {
-      return strtolower( preg_replace("/ +/",'_', preg_replace("/[^a-zA-Z0-9 ]/",'',$name) ) );
+      return substr( strtolower( preg_replace("/ +/",'_', preg_replace("/[^a-zA-Z0-9 ]/",'',$name) ) ), 0, 100);
     }
   }

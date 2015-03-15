@@ -5,6 +5,8 @@ namespace front\controllers;
 use Yii;
 use front\models\article;
 use yii\data\SqlDataProvider;
+use yii\data\ArrayDataProvider;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -16,9 +18,9 @@ class ArticleController extends Controller {
         return [
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
-                'denyCallback' => function($rule,$action) { return $action->controller->redirect('index'); },
+                'denyCallback' => function($rule,$action) { return $action->controller->redirect('/'); },
                 'rules' => [
-                    ['actions' => ['index','view'], 'roles' => ['?','@'], 'allow' => true],
+                    ['actions' => ['index','view','tagged'], 'roles' => ['?','@'], 'allow' => true],
                     ['actions' => ['create','update','delete'], 'roles' => ['@'], 'allow' => true]
                 ]
             ]
@@ -26,13 +28,31 @@ class ArticleController extends Controller {
     }
 
     public function actionIndex() {
-        $dataProvider = new SqlDataProvider([
-            'sql' => 'SELECT * FROM front_articles WHERE publishedStatus = 1 ORDER BY createDate DESC',
+        $query = new Query();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $query->select('*')
+                ->from('front_articles')
+                ->where(['publishedStatus' => 1])
+                ->orderBy(['createDate' => SORT_DESC])
+                ->all()
         ]);
 
         return $this->render('index',['dataProvider' => $dataProvider]);
     }
 
+    public function actionTagged($tag) {
+        $query = new Query();
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => $query->select('front_articles.*')
+                ->from('front_articles')
+                ->leftJoin('front_tags','`front_tags`.`modelID` = `front_articles`.`id` AND `front_tags`.`modelType` = \'front\\\models\\\article\'')
+                ->where(['front_tags.nameSafe' => $tag])
+                ->orderBy(['front_articles.createDate' => SORT_DESC])
+                ->all()
+        ]);
+
+        return $this->render('index',['dataProvider' => $dataProvider]);
+    }
 
     public function actionView($name) {
         $model = $this->findModelByName($name);
