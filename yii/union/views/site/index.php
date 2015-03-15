@@ -14,7 +14,15 @@
 
     <div class="content">
 
-        <div id="cycler" class="slideshow">
+        <div class="social">
+          <a href="https://twitter.com/TheUnionEverett"><img src="<?php echo StaticURL::make('images/union','twitter.png'); ?>" alt="Follow @TheUnionEverett on Twitter!" title="Follow @TheUnionEverett on Twitter!"></a>
+          <a href="https://www.facebook.com/pages/The-Union-Hotel-Everett-PA/207917256598"><img src="<?php echo StaticURL::make('images/union','facebook.png'); ?>" alt="Like The-Union-Hotel-Everett-PA on Facebook!" title="Like The-Union-Hotel-Everett-PA on Facebook1"></a>
+          <a href="http://instagram.com/everettunionhotel?ref=badge"><img src="<?php echo StaticURL::make('images/union','instagram.png'); ?>" alt="Follow EverettUnionHotel on Instagram!" title="Follow EverettUnionHotel on Instagram!"></a>
+          <br>
+          Follow us on Twitter and like us on Facebook! See our photos on Instagram.
+        </div>
+
+        <div class="slideshow">
             <img class="scale active" src="<?php echo StaticURL::make('images/union','food_1.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','food_2.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','food_3.jpg'); ?>">
