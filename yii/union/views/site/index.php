@@ -4,13 +4,6 @@
 ?>
 <div class="site index">
 
-    <div class="opener">
-        Opens at 11:00 am daily!<br>
-        128 East Main Street Everett, PA 15537<br>
-        Phone: (814)-348-1210<br>
-        Fax: (814)-348-1221
-    </div>
-
     <div class="content">
 
         <div class="social">
