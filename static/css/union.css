@@ -169,17 +169,28 @@ body {
     text-align: center;
 }
 
+.slideshow {
+    margin: 20px 10px 20px 10px;
+
+    text-align: center;
+}
+
 img.scale {
     max-width: 700px;
     width: 100%;
     height: auto;
 
-    display: block;
-    margin: 20px auto 20px auto;
-
+    display: inline-block;
     outline: 0;
 }
 
+.slideshow img.active {
+    display: inline-block;
+}
+
+.slideshow img:not(.active) {
+    display: none;
+}
 
 /* ======= ======= ====== ======= ======= */
 /* ======= ======= FOOTER ======= ======= */
