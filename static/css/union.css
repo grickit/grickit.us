@@ -122,10 +122,9 @@ body {
 .navbar {
     position: absolute;
     top: 0px;
-    right: 10px;
     max-height: 60px;
 
-    margin: 0px 0px 0px 100px;
+    margin: 0px 0px 0px 80px;
     padding: 0;
 
     list-style: none;
