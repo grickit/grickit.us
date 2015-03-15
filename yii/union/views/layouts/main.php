@@ -43,7 +43,7 @@
     <footer class="footer">
         <div class="container">
             <p class="pull-left">&copy; Derek Hoagland <?php echo date('Y'); ?></p>
-            <p class="pull-right"><?php echo Yii::powered(); ?></p>
+            <p class="pull-right">UNION HOTEL PROPOSAL<br>FOR DEMO USE ONLY</p>
         </div>
     </footer>
 

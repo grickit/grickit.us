@@ -161,6 +161,11 @@ body {
     padding-top: 130px;
 }
 
+.page .content {
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
 .opener {
     margin: 10px 0px 20px 0px;
 
@@ -170,7 +175,7 @@ body {
 }
 
 .slideshow {
-    margin: 20px 10px 20px 10px;
+    margin: 10px;
 
     text-align: center;
 }
