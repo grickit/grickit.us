@@ -50,6 +50,10 @@ class SiteController extends Controller {
         return $this->render('index');
     }
 
+    public function actionDirections() {
+        return $this->render('directions');
+    }
+
     public function actionLogin() {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();

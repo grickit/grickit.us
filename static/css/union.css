@@ -239,3 +239,17 @@ img.scale {
     display: inline-block;
     outline: 0;
 }
+
+
+
+/* ======= ======= === ======= ======= */
+/* ======= ======= MAP ======= ======= */
+/* ======= ======= === ======= ======= */
+.map {
+  text-align: center;
+}
+
+.map iframe {
+  width: 100%;
+  min-height: 700px;
+}

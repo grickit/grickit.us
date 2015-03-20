@@ -22,6 +22,12 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => [
+            'rules' => [
+                '' => 'site/index',
+                '<action:\w+>' => 'site/<action>'
+            ],
+        ],
     ],
     'params' => [
         'adminEmail' => 'thegrickit@gmail.com',
