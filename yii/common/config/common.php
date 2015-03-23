@@ -28,13 +28,6 @@ $config = [
                 ],
             ],
         ],
-        'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=grickit.us',
-            'username' => DBUSER,
-            'password' => DBPASS,
-            'charset' => 'utf8',
-        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

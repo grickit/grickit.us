@@ -31,6 +31,13 @@ return [
                 '<controller:\w+>/<action:tagged>/<tag:\w+>' => '<controller>/tagged'
             ],
         ],
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=grickit.us',
+            'username' => FRONTDBUSER,
+            'password' => FRONTDBPASS,
+            'charset' => 'utf8',
+        ],
     ],
     'params' => [
         'adminEmail' => 'thegrickit@gmail.com',

@@ -25,9 +25,9 @@
 
             <ul class="navbar">
                 <li><a href="/menu">Menu</a></li>
-                <li><a href="/beer">Beer/Wine</a></li>
-                <li><a href="/directions">Directions</a></li>
                 <li><a href="/rooms">Bed &amp; Breakfast</a></li>
+                <li><a href="/directions">Directions</a></li>
+                <li><a href="/beer">Beer/Wine</a></li>
                 <li><a href="/activities">Activities</a></li>
                 <?php if(!Yii::$app->user->isGuest) { echo '<li><a href="/site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>'; } ?>
             </ul>
