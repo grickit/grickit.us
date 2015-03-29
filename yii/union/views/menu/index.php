@@ -18,7 +18,7 @@
 
         <div class="clear"></div>
 
-        <div class="slideshow">
+        <div class="slideshow scale-container">
             <img class="scale active" src="<?php echo StaticURL::make('images/union','dining_1.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','dining_2.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','dining_3.jpg'); ?>">

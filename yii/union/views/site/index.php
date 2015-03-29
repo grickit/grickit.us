@@ -14,7 +14,7 @@
           Follow us on Twitter and like us on Facebook! See our photos on Instagram.
         </div>
 
-        <div class="slideshow">
+        <div class="slideshow scale-container">
             <img class="scale active" src="<?php echo StaticURL::make('images/union','food_1.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','food_2.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','food_3.jpg'); ?>">

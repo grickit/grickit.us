@@ -12,7 +12,7 @@
       <script type="text/javascript" src="http://www.booking.com/general.html?tmpl=bookit;aid=330843;lang=en-us;hotel_id=1003018;cc1=us;hotel_page=the-union"></script>
     </div>
 
-    <div class="slideshow">
+    <div class="slideshow scale-container">
       <img class="scale active" src="<?php echo StaticURL::make('images/union','room_1.jpg'); ?>">
       <img class="scale" src="<?php echo StaticURL::make('images/union','room_2.jpg'); ?>">
       <img class="scale" src="<?php echo StaticURL::make('images/union','room_3.jpg'); ?>">

@@ -243,13 +243,28 @@ h1 {
     display: none;
 }
 
-img.scale {
-    max-width: 700px;
+.scale-container {
+    text-align: center;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+.scale-container img {
     width: 100%;
     height: auto;
 
+    margin: 10px 0px 10px 0px;
     display: inline-block;
     outline: 0;
+}
+
+img.scale {
+    max-width: 700px;
+
+}
+
+img.scale-half {
+    max-width: 340px;
 }
 
 
