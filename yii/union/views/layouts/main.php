@@ -36,13 +36,6 @@
 
     <div class="page">
         <div class="container">
-            <h1>The Everett Union Hotel</h1>
-            <div class="blurb">
-                <div class="opening">Opens at 11:00 am daily!</div>
-                <div class="address">128 East Main Street Everett, PA 15537</div>
-                <div class="phone">Phone: (814)-348-1210</div>
-                <div class="fax">Fax: (814)-348-1221</div>
-            </div>
             <?php echo $content; ?>
         </div>
     </div>
