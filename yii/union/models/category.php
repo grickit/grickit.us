@@ -15,7 +15,7 @@ class category extends \yii\db\ActiveRecord {
         return [
             [['name'], 'required'],
             [['publishedStatus'], 'integer', 'max' => 1],
-            [['priceGlobal', 'double'], 'min' => 1.00],
+            [['priceGlobal'], 'double', 'min' => 1.00],
             [['name'], 'string', 'max' => 100],
             [['note'], 'string', 'max' => 1000],
             [['content'], 'string', 'max' => 5000]
@@ -43,6 +43,10 @@ class category extends \yii\db\ActiveRecord {
             'order' => 'What order are the categories listed in?',
             'publishedStatus' => 'Publish publicly?'
         ];
+    }
+
+    public function getFormattedPrice() {
+        return '$'.number_format($this->priceGlobal,2);
     }
 
     public function init() {

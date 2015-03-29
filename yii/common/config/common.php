@@ -33,8 +33,7 @@ $config = [
             'showScriptName' => false,
             'enableStrictParsing' => true,
             'rules' => [
-                '' => 'site/index',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '' => 'site/index'
             ],
         ],
         'assetManager' => [

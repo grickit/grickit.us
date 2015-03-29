@@ -1,5 +1,4 @@
 <?php
-
 namespace union\controllers;
 
 use Yii;
@@ -19,8 +18,7 @@ class MenuController extends Controller {
                 'class' => \yii\filters\AccessControl::className(),
                 'denyCallback' => function($rule,$action) { return $action->controller->redirect('index'); },
                 'rules' => [
-                    ['actions' => ['index','view'], 'roles' => ['?','@'], 'allow' => true],
-                    ['actions' => ['create','update','delete'], 'roles' => ['@'], 'allow' => true]
+                    ['actions' => ['index'], 'roles' => ['?','@'], 'allow' => true]
                 ]
             ]
         ];
@@ -37,63 +35,6 @@ class MenuController extends Controller {
         ]);
 
         return $this->render('index',['dataProvider' => $dataProvider]);
-    }
-
-
-    public function actionView($name) {
-        $model = $this->findModelByName($name);
-
-        return $this->render('view', ['model' => $model]);
-    }
-
-
-    public function actionCreate() {
-        $model = new category(['scenario' => 'create']);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['menu/'.$model->nameSafe]);
-        }
-        else {
-            return $this->render('create', ['model' => $model]);
-        }
-    }
-
-
-    public function actionUpdate($id) {
-        $model = $this->findModelByID($id);
-        $model->scenario = 'update';
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['menu/'.$model->nameSafe]);
-        }
-        else {
-            return $this->render('update', ['model' => $model]);
-        }
-    }
-
-
-    public function actionDelete($id) {
-        $this->findModelByID($id)->delete();
-        return $this->redirect(['index']);
-    }
-
-
-    protected function findModelByID($id) {
-        if (($model = category::findOne($id)) !== null) {
-            return $model;
-        }
-        else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-    protected function findModelByName($name) {
-        if (($model = category::findOne(['nameSafe' => $name])) !== null) {
-            return $model;
-        }
-        else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
     }
 
 }

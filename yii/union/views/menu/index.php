@@ -25,10 +25,10 @@
             <img class="scale" src="<?php echo StaticURL::make('images/union','dining_5.jpg'); ?>">
             <img class="scale" src="<?php echo StaticURL::make('images/union','dining_6.jpg'); ?>">
         </div>
+    </div>
 
-        <div class="crud">
-            <?php if (!\Yii::$app->user->isGuest) { echo Html::a('Create Category', ['create'], ['class' => 'btn btn-success']); } ?>
-        </div>
+    <div class="crud">
+        <?php if (!\Yii::$app->user->isGuest) { echo Html::a('Create Category', ['category/create'], ['class' => 'btn btn-success']); } ?>
     </div>
 </div>
 
