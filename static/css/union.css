@@ -280,9 +280,9 @@ a.category.tile:hover {
 }
 
 .category.tile .priceGlobal {
-    float: right;
+    display: inline-block;
     font-size: 90%;
-    color: #666666;
+    color: #000000;
 }
 
 .category.tile .notes {
