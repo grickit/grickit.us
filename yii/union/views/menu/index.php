@@ -8,6 +8,7 @@
 
 <div class="menu index">
     <div class="content">
+        <h1>Menu</h1>
         <?php
             foreach($dataProvider->getModels() as $category) {
                 $category = new category($category);
