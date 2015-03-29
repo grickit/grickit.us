@@ -299,4 +299,5 @@ a.category.tile:hover {
 .tile a:active {
     background-color: #FFFFFF;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px 0px inset;
+    padding: 16px 14px 14px 16px;
 }
