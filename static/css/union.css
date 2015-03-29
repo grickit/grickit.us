@@ -109,6 +109,12 @@ body {
     display: inline-block;
 }
 
+.brand:hover,
+.brand:active {
+    top: -11px;
+    left: 6px;
+}
+
 .brand img {
     height: 90px;
     width: auto;
