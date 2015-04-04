@@ -3,7 +3,7 @@
   use common\components\StaticURL;
 ?>
 
-<div class="category tile" style="background-image: url('<?php echo StaticURL::make('images/union','food_4.jpg'); ?>');">
+<div class="category tile" style="background-image: url('<?php echo StaticURL::make('images/union/categories',$model->nameSafe.'.jpg'); ?>');">
 
   <a class="category tile" href="<?php echo Yii::$app->urlManager->createURL("menu/".$model->nameSafe); ?>">
     <span class="category title"><?php echo $model->name; ?></span>

@@ -23,13 +23,13 @@
         </div>
 
         <div class="slideshow scale-container">
-            <img class="scale active" src="<?php echo StaticURL::make('images/union','food_1.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_2.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_3.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_4.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_5.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_6.jpg'); ?>">
-            <img class="scale" src="<?php echo StaticURL::make('images/union','food_7.jpg'); ?>">
+            <img class="scale active" src="<?php echo StaticURL::make('images/union/slideshow_food','food_1.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_2.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_3.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_4.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_5.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_6.jpg'); ?>">
+            <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_food','food_7.jpg'); ?>">
         </div>
 
         <p>We are preparing all our food ourselves, and people can taste the difference.</p>
