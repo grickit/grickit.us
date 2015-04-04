@@ -49,6 +49,13 @@ class category extends \yii\db\ActiveRecord {
         return '$'.number_format($this->priceGlobal,2);
     }
 
+    public function getFormattedNotes() {
+        $string = '<p>'.$this->notes.'</p>';
+        $pattern = '![\r\n]{2,}!';
+        $replacement = '</p><p>';
+        return preg_replace($pattern,$replacement,$string);
+    }
+
     public function init() {
         $this->createDate = date('Y-m-d H:i:s',time());
         $this->updateDate = date('Y-m-d H:i:s',time());
