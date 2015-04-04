@@ -13,12 +13,12 @@
     </div>
 
     <div class="slideshow scale-container">
-      <img class="scale active" src="<?php echo StaticURL::make('images/union','room_1.jpg'); ?>">
-      <img class="scale" src="<?php echo StaticURL::make('images/union','room_2.jpg'); ?>">
-      <img class="scale" src="<?php echo StaticURL::make('images/union','room_3.jpg'); ?>">
-      <img class="scale" src="<?php echo StaticURL::make('images/union','conference_1.jpg'); ?>">
-      <img class="scale" src="<?php echo StaticURL::make('images/union','bathroom_1.jpg'); ?>">
-      <img class="scale" src="<?php echo StaticURL::make('images/union','bathroom_2.jpg'); ?>">
+      <img class="scale active" src="<?php echo StaticURL::make('images/union/slideshow_rooms','room_1.jpg'); ?>">
+      <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_rooms','room_2.jpg'); ?>">
+      <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_rooms','room_3.jpg'); ?>">
+      <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_rooms','conference_1.jpg'); ?>">
+      <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_rooms','bathroom_1.jpg'); ?>">
+      <img class="scale" src="<?php echo StaticURL::make('images/union/slideshow_rooms','bathroom_2.jpg'); ?>">
     </div>
 
   </div>
