@@ -18,8 +18,6 @@
         <?php
             if (!\Yii::$app->user->isGuest) {
                 echo Html::a('Update', ['update', 'name' => $model->nameSafe], ['class' => 'btn btn-primary']);
-                echo ' ';
-                echo Html::a('Delete', ['delete', 'id' => $model->id], ['class' => 'btn btn-danger', 'data' => ['confirm' => 'Are you sure you want to delete this item?', 'method' => 'post']]);
             }
         ?>
     </div>

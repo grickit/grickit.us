@@ -55,8 +55,10 @@ class CategoryController extends Controller {
 
 
     public function actionDelete($id) {
-        $this->findModelByID($id)->delete();
-        return $this->redirect(['index']);
+        $model = $this->findModelByID($id);
+        $model->publishedStatus = 0;
+        $model->save();
+        return $this->redirect(['/menu']);
     }
 
 

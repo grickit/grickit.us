@@ -288,6 +288,7 @@ div.category.tile {
     margin: 0px 10px 20px 10px;
     border: 1px solid #CCCCCC;
     background-position: center;
+    position: relative;
 }
 
 a.category.tile {
@@ -320,14 +321,35 @@ a.category.tile {
     padding: 5px;
 }
 
-.tile a:hover,
-.tile a:active {
+.tile a.tile:hover,
+.tile a.tile:active {
     background-color: rgba(255,255,255,0.7);
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px 0px inset;
     padding: 16px 14px 14px 16px;
 }
 
-.tile a:hover .notes,
-.tile a:active .notes {
+.tile a.tile:hover .notes,
+.tile a.tile:active .notes {
     color: #000000;
+}
+
+a.icon {
+    width: 24px;
+    height: 24px;
+
+    display: block;
+    padding: 5px;
+
+    color: #777777;
+}
+
+a.icon:hover,
+a.icon:active {
+    color: #AAAAAA;
+}
+
+a.icon.edit {
+    position: absolute;
+    right: -25px;
+    z-index: 20;
 }

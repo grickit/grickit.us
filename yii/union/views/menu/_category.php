@@ -4,6 +4,11 @@
 ?>
 
 <div class="category tile" style="background-image: url('<?php echo StaticURL::make('images/union/categories',$model->nameSafe.'.jpg'); ?>');">
+    <?php
+        if (!\Yii::$app->user->isGuest) {
+            echo Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['/category/update', 'name' => $model->nameSafe], ['class' => 'icon edit']);
+        }
+    ?>
 
   <a class="category tile" href="<?php echo Yii::$app->urlManager->createURL("menu/".$model->nameSafe); ?>">
     <span class="category title"><?php echo $model->name; ?></span>

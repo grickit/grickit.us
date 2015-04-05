@@ -29,7 +29,15 @@
     </div>
 
     <div class="crud">
-        <?php if (!\Yii::$app->user->isGuest) { echo Html::a('Create Category', ['category/create'], ['class' => 'btn btn-success']); } ?>
+        <?php
+            if (!\Yii::$app->user->isGuest) {
+                echo Html::a('Create Category', ['category/create'], ['class' => 'btn btn-success']);
+                echo ' ';
+                echo Html::a('View Hidden Categories', ['menu/hidden'], ['class' => 'btn btn-primary']);
+                echo ' ';
+                echo Html::a('View All Categories', ['menu/all'], ['class' => 'btn btn-primary']);
+            }
+        ?>
     </div>
 </div>
 
