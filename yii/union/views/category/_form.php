@@ -18,6 +18,7 @@
         echo $form->field($model,'order')->textInput(['maxlength' => 2]);
         echo $form->field($model,'notes')->textArea(['maxlength' => 1000, 'rows' => 5]);
         echo $form->field($model,'content')->textArea(['maxlength' => 5000, 'rows' => 10]);
+        echo $form->field($model,'type')->dropDownList(array('food','alcohol','special'));
         echo $form->field($model,'publishedStatus')->checkBox(array('value' => 1, 'uncheckValue' => 0));
       ?>
     </div>

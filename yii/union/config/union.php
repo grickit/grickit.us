@@ -25,8 +25,8 @@ return [
         'urlManager' => [
             'rules' => [
                 'menu' => 'menu/index',
-                'menu/all' => 'menu/all',
-                'menu/hidden' => 'menu/hidden',
+                'menu/<type:(food|alcohol|special)>' => 'menu/index',
+                'menu/<action:(all|hidden)>' => 'menu/<action>',
                 'menu/<name:\w+>' => 'category/view',
                 '<controller:\w+>/<action:\w+>/<name:\w+>' => '<controller>/<action>',
                 '<action:\w+>' => 'site/<action>',

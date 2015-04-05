@@ -25,17 +25,17 @@ class MenuController extends Controller {
         ];
     }
 
-    public function actionIndex() {
+    public function actionIndex($type = 'food') {
         $query = new Query();
         $dataProvider = new ArrayDataProvider([
             'allModels' => $query->select('*')
                 ->from('union_categories')
-                ->where(['publishedStatus' => 1])
+                ->where(['publishedStatus' => 1, 'type' => $type])
                 ->orderBy(['order' => SORT_ASC])
                 ->all()
         ]);
 
-        return $this->render('index',['dataProvider' => $dataProvider]);
+        return $this->render('index',['type' => $type, 'dataProvider' => $dataProvider]);
     }
 
     public function actionAll() {

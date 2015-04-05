@@ -25,8 +25,8 @@ class category extends \yii\db\ActiveRecord {
     public function scenarios() {
         return [
             'default' => [],
-            'create' => ['name', 'content', 'notes', 'priceGlobal', 'order', 'publishedStatus'],
-            'update' => ['name', 'content', 'notes', 'priceGlobal', 'order', 'publishedStatus']
+            'create' => ['name', 'content', 'notes', 'type', 'priceGlobal', 'order', 'publishedStatus'],
+            'update' => ['name', 'content', 'notes', 'type', 'priceGlobal', 'order', 'publishedStatus']
         ];
     }
 
@@ -39,6 +39,7 @@ class category extends \yii\db\ActiveRecord {
             'nameSafe' => 'Internal Name',
             'content' => 'Description',
             'notes' => 'Notes (displayed under the name)',
+            'type' => 'What type of category is this?',
             'priceGlobal' => 'Do all items in this category have the same price? (Set empty to disable)',
             'order' => 'What order are the categories listed in?',
             'publishedStatus' => 'Publish publicly?'

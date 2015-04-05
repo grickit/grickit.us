@@ -16,6 +16,10 @@ body {
     margin: 10px 0px 10px 0px;
 }
 
+.crud .btn {
+    margin: 5px;
+}
+
 .index.centered {
     text-align: center;
 }

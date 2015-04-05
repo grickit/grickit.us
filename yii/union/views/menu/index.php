@@ -33,6 +33,12 @@
             if (!\Yii::$app->user->isGuest) {
                 echo Html::a('Create Category', ['category/create'], ['class' => 'btn btn-success']);
                 echo ' ';
+                echo Html::a('View Food Categories', ['menu/food'], ['class' => 'btn btn-primary']);
+                echo ' ';
+                echo Html::a('View Alcohol Categories', ['menu/alcohol'], ['class' => 'btn btn-primary']);
+                echo ' ';
+                echo Html::a('View Special Categories', ['menu/special'], ['class' => 'btn btn-primary']);
+                echo ' ';
                 echo Html::a('View Hidden Categories', ['menu/hidden'], ['class' => 'btn btn-primary']);
                 echo ' ';
                 echo Html::a('View All Categories', ['menu/all'], ['class' => 'btn btn-primary']);
