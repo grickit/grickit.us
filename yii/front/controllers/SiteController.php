@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use common\models\LoginForm;
 
 use front\controllers\ThingController;
+use common\models\SignupForm;
 
 class SiteController extends Controller {
 
@@ -75,6 +76,21 @@ class SiteController extends Controller {
 
     public function actionAusmerica() {
         return $this->render('ausmerica');
+    }
+
+    public function actionSignup() {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 
 }
