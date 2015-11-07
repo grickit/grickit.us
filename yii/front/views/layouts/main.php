@@ -27,6 +27,7 @@
                 <li><a href="/article/view/about">About</a></li>
                 <li><a href="/things">Things</a></li>
                 <li><a href="/articles">Articles</a></li>
+                <?php if(isset(Yii::$app->user->identity) && Yii::$app->user->identity->adminStatus) { echo '<li><a href="/site/admin">Administrate</a></li>'; } ?>
                 <?php if(!Yii::$app->user->isGuest) { echo '<li><a href="/site/logout" data-method="post">Logout ('.Yii::$app->user->identity->username.')</a></li>'; } ?>
             </ul>
         </nav>

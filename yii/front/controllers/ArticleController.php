@@ -45,8 +45,8 @@ class ArticleController extends Controller {
         $dataProvider = new ArrayDataProvider([
             'allModels' => $query->select('front_articles.*')
                 ->from('front_articles')
-                ->leftJoin('front_tags','`front_tags`.`modelID` = `front_articles`.`id` AND `front_tags`.`modelType` = \'front\\\models\\\article\'')
-                ->where(['front_tags.nameSafe' => $tag])
+                ->leftJoin('common_tags','`common_tags`.`modelID` = `front_articles`.`id` AND `common_tags`.`modelType` = \'front\\\models\\\article\'')
+                ->where(['common_tags.nameSafe' => $tag])
                 ->orderBy(['front_articles.createDate' => SORT_DESC])
                 ->all()
         ]);

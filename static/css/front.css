@@ -48,7 +48,6 @@ a:hover {
 /* ======= ======= ========= ======= ======= */
 /* ======= ======= STRUCTURE ======= ======= */
 /* ======= ======= ========= ======= ======= */
-
 body {
     height: 100%;
     width: 100%;
@@ -84,7 +83,6 @@ body {
 /* ======= ======= ====== ======= ======= */
 /* ======= ======= HEADER ======= ======= */
 /* ======= ======= ====== ======= ======= */
-
 .header {
     position: fixed;
     top: 0px;
@@ -143,7 +141,6 @@ body {
 /* ======= ======= ==== ======= ======= */
 /* ======= ======= PAGE ======= ======= */
 /* ======= ======= ==== ======= ======= */
-
 .page {
     background-color: #CCCCCC;
 }
@@ -157,7 +154,6 @@ body {
 /* ======= ======= ====== ======= ======= */
 /* ======= ======= FOOTER ======= ======= */
 /* ======= ======= ====== ======= ======= */
-
 .footer {
     background-color: #333333;
     color: #AAAAAA;
@@ -173,7 +169,6 @@ body {
 /* ======= ======= ======== ======= ======= */
 /* ======= ======= ARTICLES ======= ======= */
 /* ======= ======= ======== ======= ======= */
-
 .document .content {
     padding: 10px 20px 20px 20px;
 
@@ -235,7 +230,6 @@ body {
 /* ======= ======= ===== ======= ======= */
 /* ======= ======= TILES ======= ======= */
 /* ======= ======= ===== ======= ======= */
-
 .thing.tile:not(.link) {
     width: 255px;
     height: 170px;
@@ -305,10 +299,53 @@ body {
 
 
 
+/* ======= ======= ==== ======= ======= */
+/* ======= ======= ROWS ======= ======= */
+/* ======= ======= ==== ======= ======= */
+.row {
+    width: 100%;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+
+    display: block;
+
+    text-align: left;
+    background-color: #EEEEEE;
+}
+
+.row:nth-child(2n+1) {
+    background-color: #E0E0E0;
+}
+
+.row .title {
+    display: inline-block;
+
+    font-weight: bold;
+}
+
+.row .subtitle {
+    display: inline-block;
+
+    font-size: 80%;
+    color: #777777;
+}
+
+.row.user .avatar {
+    margin-right: 10px;
+
+    float: left;
+}
+
+.row.user .status {
+    display: inline-block;
+
+    float: right;
+}
+
+
 /* ======= ======= ===== ======= ======= */
 /* ======= ======= LIKES ======= ======= */
 /* ======= ======= ===== ======= ======= */
-
 .likes {
     position: absolute;
     bottom: 3px;
@@ -324,7 +361,6 @@ form.likes button.active .badge {
 /* ======= ======= ==== ======= ======= */
 /* ======= ======= TAGS ======= ======= */
 /* ======= ======= ==== ======= ======= */
-
 .tags {
     padding: 5px 10px 20px 10px;
     text-align: left;

@@ -3,7 +3,8 @@
 namespace front\models;
 
 use Yii;
-use front\models\like;
+use common\models\like;
+use common\models\tag;
 use common\components\SafeName;
 
 class article extends \yii\db\ActiveRecord {

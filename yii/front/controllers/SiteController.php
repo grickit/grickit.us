@@ -6,10 +6,13 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+
 use common\models\LoginForm;
+use common\models\SignupForm;
+//use common\models\PasswordResetRequestForm;
+//use common\models\ResetPasswordForm;
 
 use front\controllers\ThingController;
-use common\models\SignupForm;
 
 class SiteController extends Controller {
 
@@ -18,21 +21,16 @@ class SiteController extends Controller {
     public function behaviors() {
         return [
             'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'class' => \yii\filters\AccessControl::className(),
+                'denyCallback' => function($rule,$action) { return $action->controller->redirect('index'); },
                 'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+                    ['actions' => ['index','error','login','ausmerica','base'], 'roles' => ['?','@'], 'allow' => true],
+                    ['actions' => ['logout','admin'], 'roles' => ['@'], 'allow' => true]
+                ]
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
+                'actions' => ['logout' => ['post']],
             ],
         ];
     }
@@ -47,6 +45,10 @@ class SiteController extends Controller {
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function actionIndex() {
+        return $this->redirect(['/']);
     }
 
     public function actionLogin() {
@@ -78,6 +80,10 @@ class SiteController extends Controller {
         return $this->render('ausmerica');
     }
 
+    public function actionAdmin() {
+        return $this->render('admin');
+    }
+
     public function actionSignup() {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
@@ -92,5 +98,42 @@ class SiteController extends Controller {
             'model' => $model,
         ]);
     }
+
+    /*
+    public function actionRequestPasswordReset() {
+        $model = new PasswordResetRequestForm();
+        if($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
+                return $this->goHome();
+            }
+            else {
+                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
+
+        return $this->render('requestPasswordResetToken',['model' => $model]);
+    }
+
+    public function actionResetPassword($token)
+    {echo "hey sup"; die();
+
+        try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
+
+            return $this->goHome();
+        }
+
+        return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
+    }
+    */
 
 }

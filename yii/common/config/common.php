@@ -73,7 +73,8 @@ $config = [
         ]
     ],
     'params' => [
-        'adminEmail' => 'thegrickit@gmail.com',
+        'adminEmail' => 'webmaster@grickit.us',
+        //'user.passwordResetTokenExpire' => 3600,
     ],
     'runtimePath' => dirname(__DIR__).'/runtime'
 ];
